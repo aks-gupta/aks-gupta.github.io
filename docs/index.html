@@ -14,10 +14,51 @@
       color: #fff !important;
     }
 
+    a:hover {
+      color: #0a585f !important;  /* brighter blue on hover */
+    }
+
     .card {
       background-color: #2b2b2b !important;
       color: #fff !important;
     }
+    :root { --nav-h: 3.25rem; }
+
+    body { padding-top: var(--nav-h); }
+
+    .section { scroll-margin-top: calc(var(--nav-h) + 0.5rem); }
+
+    /* 4) Make the very first section breathe a bit more */
+    .section:first-of-type { padding-top: 1rem; }
+
+    /* 5) Mobile: the burger row can be taller — give a bigger offset */
+    @media (max-width: 1023px) {
+      :root { --nav-h: 3.75rem; } /* adjust if your mobile navbar is taller */
+    }
+
+    .hero.is-primary { margin-top: var(--nav-h); }
+
+
+    html { scroll-behavior: smooth; }
+
+    #navbar.navbar {
+      background-color: #2b2b2b;   /* dark grey/black */
+
+    }
+
+    #mainNav .navbar-item {
+      color: #f5f5f5 !important;  /* light text */
+    }
+    #mainNav .navbar-item:hover {
+      background-color: #222 !important;
+      color: #7be7ef !important; /* light blue on hover */
+    }
+
+    strong {
+      color: inherit !important;   /* use parent text color instead of Bulma’s black */
+      font-weight: 1000;            /* keep the bold look */
+    }
+
   </style>
   <title>devfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,29 +68,45 @@
 </head>
 
 <body>
-  <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <div class="navbar-item is-hidden-desktop">
-        <a href="https://github.com/mmacneil" class="icon is-large has-text-light">
-          <i class="fab fa-2x fa-github"></i>
+  <nav id="navbar" class="navbar is-primary is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <!-- Brand / Name -->
+        <a class="navbar-item" href="#top">
+          <strong>Akshita Gupta</strong>
+        </a>
+  
+        <!-- Mobile burger -->
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNav">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
       </div>
-      <div class="navbar-item is-hidden-desktop">
-        <a href="https://fullstackmark.com" class="icon is-large has-text-light">
-          <i class="fas fa-2x fa-globe"></i>
-        </a>
-      </div>
-    </div>
-    <div class="navbar-menu">
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <a href="https://github.com/mmacneil" class="icon is-large has-text-light">
-            <i class="fab fa-2x fa-github"></i>
-          </a>
+  
+      <div id="mainNav" class="navbar-menu">
+        <div class="navbar-start">
+          <!-- Section links -->
+          <a href="#about" class="navbar-item">About</a>
+          <a href="#publications" class="navbar-item">Publications</a>
+          <a href="#education" class="navbar-item">Education</a>
+          <a href="#experience" class="navbar-item">Experience</a>
+          <a href="#projects" class="navbar-item">Projects</a>
         </div>
-        <div class="navbar-item">
-          <a href="https://fullstackmark.com" class="icon is-large has-text-light">
-            <i class="fas fa-2x fa-globe"></i>
+  
+        <div class="navbar-end">
+          <!-- Icons you already had -->
+          <a href="https://github.com/aks-gupta" class="navbar-item" aria-label="GitHub">
+            <span class="icon"><i class="fab fa-github"></i></span>
+          </a>
+          <a href="https://www.linkedin.com/in/aks-gupta/" class="navbar-item" aria-label="Linkedin">
+            <span class="icon"><i class="fab fa-linkedin-in"></i></span>
+          </a>
+          <a href="docs/Akshita_Gupta_Resume.pdf" class="navbar-item" aria-label="Resume">
+            <span class="icon"><i class="fas fa-file-pdf"></i></span><span>&nbsp;Resume</span>
+          </a>
+          <a href="mailto:akshita24680@gmail.com" class="navbar-item" aria-label="Email">
+            <span class="icon"><i class="fas fa-x fa-envelope"></i></span><span>&nbsp;Email</span>
           </a>
         </div>
       </div>
@@ -69,35 +126,118 @@
         <div class="columns has-text-centered">
           <div class="column">
             <h1 class="title is-1">
-              Akshita Gupta
+              Hi! I'm Akshita.
             </h1>
             <h2 class="subtitle">
-              Data Science, Generative AI, Natural Language Processing, Explainable AI
+              Data Science, NLP, Explainable AI, and Theatre Enthusiast
             </h2>
-            <p>
+            <!-- <p>
               <a href="docs/Akshita_Gupta_Resume.pdf" class="icon has-text-light">
                 <i class="fas fa-file-word"></i> <strong>Resume</strong>
               </a>
-            </p>
+            </p> -->
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section id="about" class="section">
     <div class="container">
       <h1 class="title">About Me</h1>
       <hr />
-      <p>I am a graduate student, studying Machine Learning and Data Science at Carnegie Mellon University, 
+      <!-- <p>I am a graduate student, studying Machine Learning and Data Science at Carnegie Mellon University, 
         School of Computer Science. My interests lie in Multilingual Natural Language Processing and 
-        Multimodal Machine Learning.</p>
+        Multimodal Machine Learning.</p> -->
+        <p>
+          I am a graduate student at Carnegie Mellon University’s School of Computer Science, 
+          pursuing a Master’s in Computational Data Science. My work centers on 
+          <strong>Natural Language Processing, Multimodal Machine Learning, and Retrieval-Augmented Generation (RAG)</strong>, 
+          with a focus on building <strong>explainable, faithful, and culturally inclusive AI systems</strong>.
+        </p>
+        
+        <p style="margin-top: 1rem;">
+          Most recently, I worked as an <strong>AI/ML Software Engineering Intern at Amazon Web Services</strong>, 
+          where I developed a self-correcting <strong>Generative AI application</strong> for verifying 
+          LLM responses and correcting them using <strong>Automated Reasoning in AWS Bedrock</strong>. Previously, as a <strong>Software Engineer at Cisco</strong>, 
+          I designed a proof-of-concept leveraging <strong>eBPF and machine learning</strong> 
+          to gain packet path insights in ASR9k routers.
+        </p>
+        
+        <p style="margin-top: 1rem;">
+          At CMU, I am conducting research in <strong>Prof. Maarten Sap’s lab</strong>, studying 
+          <strong>Theory of Mind in LLMs</strong> and using chain-of-thought reasoning to improve 
+          faithfulness and commonsense in biased data. Alongside research, I serve as a 
+          <strong>Teaching Assistant for the Advanced NLP course</strong> under Prof. Sean Welleck, 
+          mentoring students on graduate-level assignments and projects.
+        </p>
+
+        <p style="margin-top: 1rem;">
+          Before CMU, I conducted research as a research intern at <strong>Samsung Research</strong> on
+          understanding intents in code-mixed languages, and <strong>Indian Institute of Science</strong> 
+          where I was involved in the Spire Project - a large-scale multilingual corpus for Indic languages. 
+          I have also actively researched <strong>Affect Recognition in Online Education</strong>, combining multiple 
+          modalities for understanding student emotions in online education.
+
+        </p>
     </div>
   </section>
 
-  <section class="section">
+  <section id="publications" class="section">
     <div class="container">
-      <h1 class="title">Education / Training</h1>
+      <h1 class="title">Publications</h1>
+      <hr />
+      <div class="card">
+        <div class="card-content">
+          <div class="content">
+            <p class="title is-4">"Multimodality in Online Education: A Comparative Study." Multimedia Tools and Applications (2024)</p>
+            <ul>
+              <li>Proposed a majority decision-level fusion model for multiple modalities - Facial Expressions, Posture, Speech, Eye-tracking.</li>
+              <li>Compiled a dataset of over 4k images for posture recognition, achieving an accuracy of 95.96% on CNN and 93.7% on SVM.</li>
+              <li><a href="https://link.springer.com/article/10.1007/s11042-024-20540-0" target="_blank">https://link.springer.com/article/10.1007/s11042-024-20540-0</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card card-gap">
+        <div class="card-content">
+          <div class="content">
+            <p class="title is-4">"Joint Intent Classification and Slot Tagging on Agricultural Dataset for Indic Languages." ICACCS (2023)</p>
+            <ul>
+              <li>Created a QA dataset for farmers with over 2400 entries, obtaining an accuracy of 93.89% and 98.32% on LSTM and BERT.</li>
+              <li><a href="https://ieeexplore.ieee.org/document/10113115" target="_blank">https://ieeexplore.ieee.org/document/10113115</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card card-gap">
+        <div class="card-content">
+          <div class="content">
+            <p class="title is-4">"Comparison of Perplexity Scores of Language Models for Telugu Data Corpus in the Agricultural Domain." ICICCS (2024)</p>
+            <ul>
+              <li>Compared the perplexity scores of 1 million “Telugu” web-scraped tokens on n-gram, GPT-2, and LSTM models.</li>
+              <li><a href="https://link.springer.com/chapter/10.1007/978-981-97-4152-6_38" target="_blank">https://link.springer.com/chapter/10.1007/978-981-97-4152-6_38</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="card card-gap">
+        <div class="card-content">
+          <div class="content">
+            <p class="title is-4">"A Comparative Study on Storage Solutions for Analysis of Streaming Telemetry Data". ISDA (2023)</p>
+            <ul>
+              <li>Proposed and compared a hybrid storage model using time-series databases for streaming data and cloud systems for snapshots.</li>
+            </ul>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </section>
+
+
+  <section id="education" class="section">
+    <div class="container">
+      <h1 class="title">Education</h1>
       <hr />
       <div class="card">
         <div class="card-content">
@@ -132,7 +272,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section id="experience" class="section">
     <div class="container">
       <h1 class="title">Experience</h1>
       <hr />
@@ -151,9 +291,9 @@
           </div>
           <div class="content">
             <ul>
-              <li>Spearheaded the development of a full stack LLM-based test suite for guardrails verification in AWS Bedrock.</li>
-              <li>Created the pipeline for corrective behavior and reduced hallucinations by applying automated checks to LLM responses.</li>
-              <li>Designed and implemented the UX interface and dashboard to record metrics for user improvement.</li>
+              <li>Designed and developed a Gen-AI application to internally dogfood Automated Reasoning checks for AWS Bedrock Guardrails.</li>
+              <li>Built a corrective pipeline to reduce hallucinations in LLM responses using formal methods.</li>
+              <li>Delivered actionable insights from application, through prompt tuning, and tracking user struggles in using AR checks.</li>
             </ul>
           </div>
         </div>
@@ -245,7 +385,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section id="projects" class="section">
     <div class="container">
       <h1 class="title">Projects</h1>
       <hr />
@@ -291,345 +431,6 @@
       </div>
     </div>
   </section>
-
-  <section class="section">
-    <div class="container">
-      <h1 class="title">Publications</h1>
-      <hr />
-      <div class="card">
-        <div class="card-content">
-          <div class="content">
-            <p class="title is-4">"Multimodality in Online Education: A Comparative Study." Multimedia Tools and Applications (2024)</p>
-            <ul>
-              <li>Proposed a majority decision-level fusion model for multiple modalities - Facial Expressions, Posture, Speech, Eye-tracking.</li>
-              <li>Compiled a dataset of over 4k images for posture recognition, achieving an accuracy of 95.96% on CNN and 93.7% on SVM.</li>
-              <li><a href="https://link.springer.com/article/10.1007/s11042-024-20540-0" target="_blank">https://link.springer.com/article/10.1007/s11042-024-20540-0</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="card card-gap">
-        <div class="card-content">
-          <div class="content">
-            <p class="title is-4">"Joint Intent Classification and Slot Tagging on Agricultural Dataset for Indic Languages." ICACCS (2023)</p>
-            <ul>
-              <li>Created a QA dataset for farmers with over 2400 entries, obtaining an accuracy of 93.89% and 98.32% on LSTM and BERT.</li>
-              <li><a href="https://ieeexplore.ieee.org/document/10113115" target="_blank">https://ieeexplore.ieee.org/document/10113115</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="card card-gap">
-        <div class="card-content">
-          <div class="content">
-            <p class="title is-4">"Comparison of Perplexity Scores of Language Models for Telugu Data Corpus in the Agricultural Domain." ICICCS (2024)</p>
-            <ul>
-              <li>Compared the perplexity scores of 1 million “Telugu” web-scraped tokens on n-gram, GPT-2, and LSTM models.</li>
-              <li><a href="https://link.springer.com/chapter/10.1007/978-981-97-4152-6_38" target="_blank">https://link.springer.com/chapter/10.1007/978-981-97-4152-6_38</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="card card-gap">
-        <div class="card-content">
-          <div class="content">
-            <p class="title is-4">"A Comparative Study on Storage Solutions for Analysis of Streaming Telemetry Data". ISDA (2023)</p>
-            <ul>
-              <li>Proposed and compared a hybrid storage model using time-series databases for streaming data and cloud systems for snapshots.</li>
-            </ul>
-          </div>
-        </div>
-      </div> -->
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h1 class="title">Contact</h1>
-      <hr />
-      <nav class="level">
-        <div class="level-item has-text-centered">
-          <div>
-            <a href="https://github.com/aks-gupta" class="icon is-large">
-              <i class="fab fa-2x fa-github"></i>
-            </a>
-            <p class="heading"><a href="https://github.com/aks-gupta">github.com/aks-gupta</a></p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <a href="mailto:akshita24680@gmail.com" class="icon is-large">
-              <i class="fas fa-2x fa-envelope"></i>
-            </a>
-            <p class="heading"><a href="mailto:akshita24680@gmail.com">akshita24680@gmail.com</a></p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <a href="https://www.linkedin.com/in/aks-gupta/" class="icon is-large">
-              <i class="fab fa-2x fa-linkedin-in"></i>
-            </a>
-            <p class="heading"><a href="https://www.linkedin.com/in/aks-gupta/">linkedin</a></p>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </section>
-
-  <!-- Modals -->
-  <div id="project-1-modal" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Project title</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-
-        <div id="project-1-modal-carousel" class="carousel">
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/1.png">
-          </figure>
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/2.png">
-          </figure>
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/3.png">
-          </figure>
-        </div>
-
-        <div class="content">
-
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo
-            consequat.</p>
-
-          <div class="tags">
-            <span class="tag">angular</span>
-            <span class="tag">mongo</span>
-            <span class="tag">typscript</span>
-            <span class="tag">node</span>
-          </div>
-
-        </div>
-
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button is-success">Close</button>
-      </footer>
-    </div>
-  </div>
-
-  <div id="project-2-modal" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Project title</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-
-        <div id="project-2-modal-carousel" class="carousel">
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/1.png">
-          </figure>
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/2.png">
-          </figure>
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/3.png">
-          </figure>
-        </div>
-
-        <div class="content">
-
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo
-            consequat.</p>
-
-          <div class="tags">
-            <span class="tag">angular</span>
-            <span class="tag">mongo</span>
-            <span class="tag">typscript</span>
-            <span class="tag">node</span>
-          </div>
-
-        </div>
-
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button is-success">Close</button>
-      </footer>
-    </div>
-  </div>
-
-  <div id="project-3-modal" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Project title</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-        <div id="project-3-modal-carousel" class="carousel">
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/1.png">
-          </figure>
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/2.png">
-          </figure>
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/3.png">
-          </figure>
-        </div>
-
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo
-            consequat.</p>
-          <div class="tags">
-            <span class="tag">angular</span>
-            <span class="tag">mongo</span>
-            <span class="tag">typscript</span>
-            <span class="tag">node</span>
-          </div>
-        </div>
-
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button is-success">Close</button>
-      </footer>
-    </div>
-  </div>
-
-  <div id="project-4-modal" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Project title</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-        <div id="project-4-modal-carousel" class="carousel">
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/1.png">
-          </figure>
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/2.png">
-          </figure>
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/3.png">
-          </figure>
-        </div>
-
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo
-            consequat.</p>
-          <div class="tags">
-            <span class="tag">angular</span>
-            <span class="tag">mongo</span>
-            <span class="tag">typscript</span>
-            <span class="tag">node</span>
-          </div>
-        </div>
-
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button is-success">Close</button>
-      </footer>
-    </div>
-  </div>
-
-  <div id="project-5-modal" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Project title</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-        <div id="project-5-modal-carousel" class="carousel">
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/1.png">
-          </figure>
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/2.png">
-          </figure>
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/3.png">
-          </figure>
-        </div>
-
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo
-            consequat.</p>
-          <div class="tags">
-            <span class="tag">angular</span>
-            <span class="tag">mongo</span>
-            <span class="tag">typscript</span>
-            <span class="tag">node</span>
-          </div>
-        </div>
-
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button is-success">Close</button>
-      </footer>
-    </div>
-  </div>
-
-  <div id="project-6-modal" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Project title</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-        <div id="project-6-modal-carousel" class="carousel">
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/1.png">
-          </figure>
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/2.png">
-          </figure>
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/3.png">
-          </figure>
-        </div>
-
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo
-            consequat.</p>
-          <div class="tags">
-            <span class="tag">angular</span>
-            <span class="tag">mongo</span>
-            <span class="tag">typscript</span>
-            <span class="tag">node</span>
-          </div>
-        </div>
-
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button is-success">Close</button>
-      </footer>
-    </div>
-  </div>
 
   <footer class="footer">
     <div class="content has-text-centered">
